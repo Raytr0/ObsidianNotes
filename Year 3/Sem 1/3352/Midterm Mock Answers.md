@@ -1,0 +1,21 @@
+A
+B
+C
+B
+A
+D
+C
+B
+D
+B
+C
+A 12- The stakeholders are the end users of the system. a. True b. False
+C
+D
+C
+C
+A
+B
+A
+D
+B
