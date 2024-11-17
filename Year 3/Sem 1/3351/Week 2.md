@@ -9,5 +9,10 @@ Core Principles:
 	Limit WIP:
 		avoids overloading team members, limits amount of tasks in each stage.
 	Manage Flow:
-		
+		Monitors how work flows from "To Do" to "Done"
+	Continuous Improvement:
+		regularly evaluate and improve process
+
+### DevOps
+
 
