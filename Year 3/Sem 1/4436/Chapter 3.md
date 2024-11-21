@@ -113,4 +113,52 @@ TCP Sender:
 		update known ACKed
 		start timer if unACKed segments'
 Retransmission scenarios:
-![[Pasted image 20241120013116.png|500]]![[Pasted image 20241120013136.png]]
+![[Pasted image 20241120013116.png|500]]![[Pasted image 20241120013136.png]]![[Pasted image 20241120015450.png]]
+
+TCP flow control:
+sender too fast for receiver
+	receiver controls sender, so sender won’t overflow receiver’s buffer by transmitting too much, too fast
+	Receiver advertises free buffer space in rwnd field in TCP header
+		RcvBuffer size default is 4096 bytes
+		many OS autoadjust RcvBuffer
+	Sender limits amount of unACKed data to received rwnd
+	guarantees no overflow
+
+Closing TCP Connection:
+client, server each close their side of connection 
+	send TCP segment with FIN bit = 1 
+respond to received FIN with ACK 
+	on receiving FIN, ACK can be combined with own FIN 
+simultaneous FIN exchanges can be handled
+
+### Principles of congestion control
+too many senders, sending too fast
+Scenario 1:
+![[Pasted image 20241120020436.png]]
+Scenario 2:
+Same setup, but finite buffers
+buffer now fills up and packets are lost
+![[Pasted image 20241120020538.png]]
+Scenario 3:
+![[Pasted image 20241120020637.png]]
+dropped packet: any upstream transmission capacity and buffering used for packet is wasted 
+![[Pasted image 20241120020742.png]]
+
+### TCP congestion control: AIMD
+senders increase sending rate until packet loss occurs, then decrease sending rate on loss![[Pasted image 20241120020858.png]]
+![[Pasted image 20241120022928.png]]
+TCP slow start:
+Exponential increase until rate loss event occurs
+initial cwnd = 1, double cwnd every RTT
+
+TCP CUBIC:
+![[Pasted image 20241120113810.png]]
+Initiall reaches Wmax faster, but approaches Wmax more slowly
+Default in Linux, most popular for TCP and Web servers
+
+There is going to exist a congested bottleneck for TCP
+### Delay-based TCP congestion control
+congestion control without inducing/forcing loss
+![[Pasted image 20241120114744.png]]
+
+TCP fairness:
