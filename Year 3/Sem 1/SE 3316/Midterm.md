@@ -137,10 +137,39 @@ External (Best)
 Runs when user does not have the ability to run JS
 Usually just notifies user to enable it
 
-### Slides 27 to 82
-Explains JS syntax and stuff
-Technically the rest are too, skim thru it, refresh stuff, you know most of it
-Edit: This was false confidence, read through the fucking thing
+### Strict Mode
+"use strict";
+turns "silent errors" to "throw errors"
+easier to optimize code this way
+
+### Operators
+== is equal to type
+=== is equal to value and type
+vice versa for not equals
+<,>,=<,=>
+### Conditionals
+```js
+if (){
+
+} else if (){
+
+} else {
+
+}
+
+switch () {
+case "":
+output = "";
+break;
+default:
+output = "";
+}
+
+x = (y==4) ? "y is 4" : "y is not 4"
+//y==4 is the condition, ? "output if true" : "output if false"
+```
+A value is said to be truthy if it evaluates to true, while a value is said to be falsy if it evaluates to false.
+false, null, "", '', 0, NaN, and undefined are falsy
 # Week 4
 Its networking stuff for HTTPS, short slides just read again its stuff repeated from networking with additional details about the protocol
 
