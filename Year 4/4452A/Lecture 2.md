@@ -1,0 +1,1 @@
+Testing can only show the presence of failures, not their absences
